@@ -1,0 +1,18 @@
+---
+/** <ContactForm accessKey="fk_…" />: ready-made name / email / message form. */
+import FormgongForm, { type Props as FormProps } from "./FormgongForm.astro";
+
+export interface Props extends FormProps {
+  labels?: Partial<Record<"name" | "email" | "message" | "submit", string>>;
+}
+
+const { labels = {}, ...props } = Astro.props;
+const text = { name: "Name", email: "Email", message: "Message", submit: "Send", ...labels };
+---
+
+<FormgongForm {...props} style="display:grid;gap:16px;max-width:512px">
+  <label style="display:grid;gap:6px">{text.name}<input name="name" autocomplete="name" required /></label>
+  <label style="display:grid;gap:6px">{text.email}<input type="email" name="email" autocomplete="email" required /></label>
+  <label style="display:grid;gap:6px">{text.message}<textarea name="message" rows="5" required></textarea></label>
+  <button type="submit">{text.submit}</button>
+</FormgongForm>

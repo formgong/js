@@ -1,0 +1,59 @@
+{
+  "name": "create-formgong",
+  "version": "0.2.0",
+  "description": "Scaffold a contact form that works without a backend: Next.js, Astro, plain HTML or a React component for Lovable, Bolt and v0. Can create the Formgong form for you. Submissions go to email and Telegram.",
+  "type": "module",
+  "bin": {
+    "create-formgong": "index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "engines": {
+    "node": ">=18.17"
+  },
+  "keywords": [
+    "create",
+    "starter",
+    "template",
+    "contact-form",
+    "form-backend",
+    "forms",
+    "telegram",
+    "gdpr",
+    "lovable",
+    "bolt",
+    "v0",
+    "nextjs",
+    "astro",
+    "react",
+    "static-site",
+    "formgong",
+    "formspree-alternative",
+    "web3forms-alternative",
+    "form backend",
+    "contact form",
+    "email"
+  ],
+  "author": "Formgong <support@formgong.com>",
+  "license": "MIT",
+  "homepage": "https://formgong.com/en/docs/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formgong/js.git",
+    "directory": "packages/create-formgong"
+  },
+  "bugs": {
+    "url": "https://github.com/formgong/js/issues",
+    "email": "support@formgong.com"
+  },
+  "scripts": {
+    "test": "vitest run"
+  },
+  "publishConfig": {
+    "access": "public",
+    "provenance": true
+  }
+}

@@ -1,0 +1,47 @@
+# Publishes packages to npm with provenance. Manual only: Actions → Release → Run workflow.
+#
+# One-time setup (see RELEASING.md):
+#   A) First publish of new package names: add an npm automation/granular token with publish
+#      rights for `formgong` and `@formgong/*` as the repository secret NPM_TOKEN.
+#   B) Afterwards (recommended): on npmjs.com → each package → Settings → Trusted publishing,
+#      add GitHub Actions publisher: org `formgong`, repo `js`, workflow `release.yml`,
+#      environment `npm`. Then delete the NPM_TOKEN secret; OIDC is used instead.
+name: Release
+
+on:
+  workflow_dispatch:
+    inputs:
+      publish:
+        description: "Really publish to npm (unchecked = dry run)"
+        type: boolean
+        default: false
+
+permissions:
+  contents: read
+  id-token: write # npm provenance + trusted publishing (OIDC)
+
+concurrency: release
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    environment: npm
+    steps:
+      - uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 22
+          cache: pnpm
+          registry-url: https://registry.npmjs.org
+      # npm >= 11.5.1 is required for trusted publishing (OIDC).
+      - run: npm install -g npm@latest
+      - run: pnpm install --frozen-lockfile
+      - run: pnpm build
+      - run: pnpm typecheck
+      - run: pnpm test
+      - name: Publish (npm publish --provenance)
+        run: node scripts/publish.mjs ${{ inputs.publish && '--publish' || '' }}
+        env:
+          NODE_AUTH_TOKEN: ${{ secrets.NPM_TOKEN }}
+          NPM_CONFIG_PROVENANCE: "true"

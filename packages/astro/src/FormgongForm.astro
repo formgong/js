@@ -1,0 +1,47 @@
+---
+/**
+ * <FormgongForm accessKey="fk_…"> …your fields… </FormgongForm>
+ * Works without JavaScript (native POST + redirect); with JS it submits inline and shows Formgong's message.
+ */
+import type { HTMLAttributes } from "astro/types";
+
+export interface Props extends Omit<HTMLAttributes<"form">, "action" | "method"> {
+  /** Public form key (fk_…). Public by design. */
+  accessKey: string;
+  /** Visitor language: en uk pl tr de es fr pt ar he hi ja. Defaults to <html lang>. */
+  lang?: string;
+  subject?: string;
+  /** Page to open after success (also used without JavaScript). */
+  redirect?: string;
+  endpoint?: string;
+  /** Anti-spam signals like fg.js. Default true. */
+  antiSpam?: boolean;
+  hideStatus?: boolean;
+  statusClass?: string;
+}
+
+const { accessKey, lang, subject, redirect, endpoint = "https://formgong.com/submit", antiSpam = true, hideStatus = false, statusClass, ...attrs } = Astro.props;
+---
+
+<form {...attrs} action={endpoint} method="POST" data-formgong data-anti-spam={antiSpam ? "true" : "false"}>
+  <input type="hidden" name="access_key" value={accessKey} />
+  {lang && <input type="hidden" name="_lang" value={lang} />}
+  {subject && <input type="hidden" name="_subject" value={subject} />}
+  {redirect && <input type="hidden" name="_redirect" value={redirect} />}
+  <div aria-hidden="true" style="position:absolute;left:-10000px;width:1px;height:1px;overflow:hidden">
+    <input name="botcheck" tabindex="-1" autocomplete="off" />
+  </div>
+  <slot />
+  {!hideStatus && <p role="status" aria-live="polite" class={statusClass} data-formgong-status style={statusClass ? undefined : "margin:0;font-size:14px"}></p>}
+</form>
+
+<script>
+  import { enhanceAll } from "@formgong/astro/client";
+  enhanceAll();
+  document.addEventListener("astro:page-load", () => enhanceAll());
+</script>
+
+<style is:global>
+  [data-formgong-status][data-status="success"] { color: #15803d; }
+  [data-formgong-status][data-status="error"] { color: #b91c1c; }
+</style>

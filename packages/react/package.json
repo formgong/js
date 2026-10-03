@@ -1,0 +1,47 @@
+{
+  "name": "@formgong/react",
+  "version": "0.2.0",
+  "description": "React contact form without a backend: <ContactForm>, <FormgongForm> and useFormgong(). Submissions go to email, Telegram and webhooks via Formgong. Works in Lovable, Bolt, v0, Next.js and Vite. A Formspree / Web3Forms alternative.",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "import": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
+      "require": { "types": "./dist/index.d.cts", "default": "./dist/index.cjs" }
+    },
+    "./package.json": "./package.json"
+  },
+  "files": ["dist", "README.md", "LICENSE"],
+  "sideEffects": false,
+  "scripts": {
+    "build": "tsup",
+    "typecheck": "tsc --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@formgong/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "react": ">=18"
+  },
+  "devDependencies": {
+    "@testing-library/react": "^16.1.0",
+    "@types/react": "^19.0.0",
+    "@types/react-dom": "^19.0.0",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  },
+  "keywords": [
+    "formgong", "react", "react-form", "contact-form", "contact form", "form-backend", "form backend", "forms", "hook", "useForm",
+    "formspree-alternative", "formspree alternative", "web3forms-alternative", "web3forms alternative",
+    "telegram", "email", "gdpr", "spam-protection", "turnstile", "lovable", "bolt", "v0", "nextjs", "vite", "remix", "no-backend"
+  ],
+  "author": "Formgong <support@formgong.com>",
+  "license": "MIT",
+  "homepage": "https://formgong.com/en/docs/",
+  "repository": { "type": "git", "url": "git+https://github.com/formgong/js.git", "directory": "packages/react" },
+  "bugs": { "url": "https://github.com/formgong/js/issues", "email": "support@formgong.com" },
+  "publishConfig": { "access": "public", "provenance": true }
+}
