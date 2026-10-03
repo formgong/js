@@ -6,6 +6,10 @@ Versions are managed with [Changesets](https://github.com/changesets/changesets)
 2. When you are ready to release, run `pnpm version-packages`. It bumps the versions, updates the changelogs and fixes internal ranges. Commit the result and merge it to `main`.
 3. Go to **Actions → Release → Run workflow**. Leave "Really publish" unchecked for a dry run, then run it again with it checked. `scripts/publish.mjs` publishes every package whose version is not on npm yet, dependencies first, with `pnpm publish --provenance --access public` (pnpm calls `npm publish` and rewrites `workspace:^` ranges).
 
+## Release history
+
+The first versions (`@formgong/core`, `@formgong/next`, `@formgong/vue`, `@formgong/svelte`, `@formgong/astro` and `formgong` at 0.1.0, plus `@formgong/react` and `create-formgong` at 0.2.0) were published by hand on 2026-10-03 as npm user `formgong`, **without provenance**. Every package name now exists, so trusted publishing can be configured for all of them right away. The next release from the workflow will carry provenance.
+
 ## One-time npm setup
 
 The workflow has `permissions: id-token: write` and runs in the GitHub environment `npm`, so you can add protection rules such as required reviewers.
