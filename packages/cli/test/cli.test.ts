@@ -121,6 +121,7 @@ describe("formgong CLI", () => {
       [{ "@sveltejs/kit": "2", svelte: "5" }, "src/routes/contact/+page.svelte", "@formgong/svelte"],
       [{ svelte: "5" }, "lib/ContactForm.svelte", "@formgong/svelte"],
       [{ astro: "4" }, "src/pages/contact.astro", "@formgong/astro"],
+      [{ "@angular/core": "17", "@angular/forms": "17" }, "app/contact/contact.component.ts", "@formgong/angular"],
     ];
     for (const [deps, file, pkg] of cases) {
       const { io, out, cwd } = makeIo();

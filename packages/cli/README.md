@@ -2,7 +2,7 @@
 
 [![npm](https://img.shields.io/npm/v/formgong?color=4f46e5&label=npm)](https://www.npmjs.com/package/formgong) [![CI](https://github.com/formgong/js/actions/workflows/ci.yml/badge.svg)](https://github.com/formgong/js/actions/workflows/ci.yml) [![license](https://img.shields.io/npm/l/formgong)](https://github.com/formgong/js/blob/main/LICENSE) [![node](https://img.shields.io/node/v/formgong)](https://nodejs.org)
 
-> The [Formgong](https://formgong.com) CLI. A contact form backend from your terminal: create a form, drop a working contact page into Next.js, React, Vue, Nuxt, Svelte, SvelteKit, Astro or plain HTML, and read submissions. Submissions also go to your email and Telegram.
+> The [Formgong](https://formgong.com) CLI. A contact form backend from your terminal: create a form, drop a working contact page into Next.js, React, Vue, Nuxt, Svelte, SvelteKit, Astro, Angular or plain HTML, and read submissions. Submissions also go to your email and Telegram.
 
 ```bash
 npx formgong login     # paste a personal API token (fgp_…)
@@ -36,6 +36,7 @@ npx formgong init      # create a form + write a contact page for your framework
 | SvelteKit | `src/routes/contact/+page.svelte` | `@formgong/svelte` |
 | Svelte | `src/lib/ContactForm.svelte` | `@formgong/svelte` |
 | Astro | `src/pages/contact.astro` | `@formgong/astro` |
+| Angular 17+ | `src/app/contact/contact.component.ts` (standalone, add a route) | `@formgong/angular` |
 | No framework | `contact.html` (official snippet from the API) | – |
 
 Useful flags:
@@ -78,6 +79,7 @@ How it compares with Formspree, Web3Forms, Basin, Getform, FormSubmit and Netlif
 | [`@formgong/vue`](https://www.npmjs.com/package/@formgong/vue) | Vue 3 and Nuxt components and the `useFormgong()` composable |
 | [`@formgong/svelte`](https://www.npmjs.com/package/@formgong/svelte) | `use:formgong` action, store helper, Svelte components |
 | [`@formgong/astro`](https://www.npmjs.com/package/@formgong/astro) | Astro components with progressive enhancement, plus a helper for Actions |
+| [`@formgong/angular`](https://www.npmjs.com/package/@formgong/angular) | Angular 17+ standalone component, `formgongForm` directive and `FormgongService` with signals |
 | [`formgong`](https://www.npmjs.com/package/formgong) | CLI: `npx formgong init` creates a form and adds it to your project |
 | [`create-formgong`](https://www.npmjs.com/package/create-formgong) | `npm create formgong@latest`: starter projects |
 

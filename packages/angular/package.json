@@ -1,0 +1,75 @@
+{
+  "name": "@formgong/angular",
+  "version": "0.1.0",
+  "description": "Angular contact form without a backend: standalone <formgong-contact-form>, formgongForm directive and FormgongService (signals) for Reactive and template-driven forms. Submissions go to email, Telegram and webhooks via Formgong. A Formspree / Web3Forms alternative.",
+  "private": false,
+  "scripts": {
+    "build": "ng-packagr -p ng-package.json -c tsconfig.lib.json && node scripts/postbuild.mjs",
+    "typecheck": "tsc -p tsconfig.lib.json --noEmit",
+    "test": "vitest run"
+  },
+  "dependencies": {
+    "@formgong/core": "workspace:^",
+    "tslib": "^2.6.0"
+  },
+  "peerDependencies": {
+    "@angular/common": ">=17.0.0",
+    "@angular/core": ">=17.0.0",
+    "@angular/forms": ">=17.0.0"
+  },
+  "devDependencies": {
+    "@angular/common": "~17.3.12",
+    "@angular/compiler": "~17.3.12",
+    "@angular/compiler-cli": "~17.3.12",
+    "@angular/core": "~17.3.12",
+    "@angular/forms": "~17.3.12",
+    "@angular/platform-browser": "~17.3.12",
+    "@angular/platform-browser-dynamic": "~17.3.12",
+    "ng-packagr": "~17.3.0",
+    "rxjs": "~7.8.0",
+    "typescript": "~5.4.5",
+    "zone.js": "~0.14.4"
+  },
+  "keywords": [
+    "formgong",
+    "angular",
+    "angular-forms",
+    "reactive-forms",
+    "signals",
+    "standalone-component",
+    "directive",
+    "contact-form",
+    "contact form",
+    "form-backend",
+    "form backend",
+    "forms",
+    "formspree-alternative",
+    "formspree alternative",
+    "web3forms-alternative",
+    "web3forms alternative",
+    "telegram",
+    "email",
+    "gdpr",
+    "spam-protection",
+    "static-site",
+    "no-backend",
+    "typescript"
+  ],
+  "author": "Formgong <support@formgong.com>",
+  "license": "MIT",
+  "homepage": "https://formgong.com/en/for/angular/",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formgong/js.git",
+    "directory": "packages/angular"
+  },
+  "bugs": {
+    "url": "https://github.com/formgong/js/issues",
+    "email": "support@formgong.com"
+  },
+  "sideEffects": false,
+  "publishConfig": {
+    "access": "public",
+    "directory": "dist"
+  }
+}

@@ -13,7 +13,7 @@ import { join } from "node:path";
 const really = process.argv.includes("--publish");
 const root = join(import.meta.dirname, "..");
 // Publish order: dependencies first.
-const order = ["core", "react", "vue", "svelte", "astro", "next", "cli", "create-formgong"];
+const order = ["core", "react", "vue", "svelte", "astro", "angular", "next", "cli", "create-formgong"];
 const dirs = readdirSync(join(root, "packages")).sort((a, b) => order.indexOf(a) - order.indexOf(b));
 
 const onNpm = (name, version) => {
@@ -32,7 +32,9 @@ for (const dir of dirs) {
   const args = ["publish", "--provenance", "--access", "public", "--no-git-checks", ...(really ? [] : ["--dry-run"])];
   console.log(`${really ? "→" : "(dry run)"} pnpm ${args.join(" ")}  # ${pkg.name}@${pkg.version}`);
   try {
-    execFileSync("pnpm", args, { cwd: join(root, "packages", dir), stdio: "inherit" });
+    // Packages built into a separate folder (ng-packagr: @formgong/angular) publish from publishConfig.directory.
+    const cwd = join(root, "packages", dir, pkg.publishConfig?.directory ?? "");
+    execFileSync("pnpm", args, { cwd, stdio: "inherit" });
   } catch {
     failed = true;
     console.error(`✖ ${pkg.name}@${pkg.version} failed`);

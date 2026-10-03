@@ -131,6 +131,29 @@ import ContactForm from "@formgong/astro/ContactForm.astro";
 </html>
 `,
       };
+    case "angular":
+      return {
+        file: `${project.srcDir ? "src/" : ""}app/contact/contact.component.ts`,
+        package: "@formgong/angular",
+        usage: "Add a route: { path: \"contact\", loadComponent: () => import(\"./contact/contact.component\").then((m) => m.ContactComponent) }",
+        content: `// Contact form powered by Formgong: submissions go to your email / Telegram. The access key is public by design.
+import { Component } from "@angular/core";
+import { FormgongContactFormComponent } from "@formgong/angular";
+
+@Component({
+  selector: "app-contact",
+  standalone: true,
+  imports: [FormgongContactFormComponent],
+  template: \`
+    <main style="max-width:560px;margin:0 auto;padding:48px 16px">
+      <h1>Contact us</h1>
+      <formgong-contact-form accessKey=${q(accessKey)}${langAttr(" ")} />
+    </main>
+  \`,
+})
+export class ContactComponent {}
+`,
+      };
     case "html":
     default:
       return {

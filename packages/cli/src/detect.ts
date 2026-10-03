@@ -1,7 +1,7 @@
 import { existsSync, readFileSync } from "node:fs";
 import { join } from "node:path";
 
-export const FRAMEWORKS = ["next", "react", "vue", "nuxt", "svelte", "sveltekit", "astro", "html"] as const;
+export const FRAMEWORKS = ["next", "react", "vue", "nuxt", "svelte", "sveltekit", "astro", "angular", "html"] as const;
 export type Framework = (typeof FRAMEWORKS)[number];
 export type PackageManager = "npm" | "pnpm" | "yarn" | "bun";
 
@@ -31,6 +31,7 @@ export function detectProject(dir: string): Project {
   let framework: Framework = "html";
   if (has("next")) framework = "next";
   else if (has("astro")) framework = "astro";
+  else if (has("@angular/core")) framework = "angular";
   else if (has("@sveltejs/kit")) framework = "sveltekit";
   else if (has("svelte")) framework = "svelte";
   else if (has("nuxt")) framework = "nuxt";

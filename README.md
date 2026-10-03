@@ -5,7 +5,7 @@
 Official packages for **[Formgong](https://formgong.com)**, the form backend for contact forms. Your form posts to Formgong, and each submission arrives by **email, Telegram or webhook**. You don't need a server, a database or SMTP. There is a free plan, data is stored in the EU, and messages come in 12 languages.
 
 ```bash
-npx formgong init        # create a form + add a contact page to your Next.js / React / Vue / Svelte / Astro / HTML project
+npx formgong init        # create a form + add a contact page to your Next.js / React / Vue / Svelte / Astro / Angular / HTML project
 ```
 
 | Package | Version | Use it for |
@@ -16,6 +16,7 @@ npx formgong init        # create a form + add a contact page to your Next.js / 
 | [`@formgong/vue`](packages/vue) | [![npm](https://img.shields.io/npm/v/@formgong/vue?label=)](https://www.npmjs.com/package/@formgong/vue) | Vue 3 and Nuxt components and the `useFormgong()` composable |
 | [`@formgong/svelte`](packages/svelte) | [![npm](https://img.shields.io/npm/v/@formgong/svelte?label=)](https://www.npmjs.com/package/@formgong/svelte) | `use:formgong` action, store helper and components for Svelte 4/5 and SvelteKit |
 | [`@formgong/astro`](packages/astro) | [![npm](https://img.shields.io/npm/v/@formgong/astro?label=)](https://www.npmjs.com/package/@formgong/astro) | Astro components with progressive enhancement, plus a helper for Astro Actions |
+| [`@formgong/angular`](packages/angular) | [![npm](https://img.shields.io/npm/v/@formgong/angular?label=)](https://www.npmjs.com/package/@formgong/angular) | Angular 17+ standalone component, `formgongForm` directive and `FormgongService` with signals |
 | [`formgong`](packages/cli) | [![npm](https://img.shields.io/npm/v/formgong?label=)](https://www.npmjs.com/package/formgong) | CLI: `login`, `init`, `forms`, `create`, `snippet`, `submissions` |
 | [`create-formgong`](packages/create-formgong) | [![npm](https://img.shields.io/npm/v/create-formgong?label=)](https://www.npmjs.com/package/create-formgong) | `npm create formgong@latest`: Next.js, Astro, HTML and React starters |
 
@@ -40,6 +41,12 @@ import ContactForm from "@formgong/astro/ContactForm.astro";
 <ContactForm accessKey="fk_your_access_key" />
 ```
 
+```ts
+// Angular 17+ (standalone)
+import { FormgongContactFormComponent } from "@formgong/angular";
+@Component({ imports: [FormgongContactFormComponent], template: `<formgong-contact-form accessKey="fk_your_access_key" />` })
+```
+
 The access key (`fk_…`) is public by design: it can only send submissions to your form. Get one free at [formgong.com](https://formgong.com).
 
 ## What every package does for you
@@ -60,7 +67,7 @@ pnpm install
 pnpm build && pnpm typecheck && pnpm test
 ```
 
-- `packages/*`: published packages (pnpm workspaces, tsup, vitest).
+- `packages/*`: published packages (pnpm workspaces, tsup, vitest; `@formgong/angular` is built with ng-packagr in partial Ivy mode).
 - `examples/next-server-action`: Next.js Server Action example.
 - `scripts/e2e.mjs`: end-to-end check against a live Formgong deployment.
 - Releases: [Changesets](.changeset/README.md) + a manual GitHub Actions workflow with npm provenance. See [RELEASING.md](RELEASING.md). (Workflows live in `.github/workflows-to-enable/` until they are moved into `.github/workflows/`.)

@@ -11,7 +11,7 @@ import { credentialsPath, deleteCredentials, readCredentials, saveCredentials } 
 import { detectProject, FRAMEWORKS, installCommand, type Framework } from "./detect.js";
 import { htmlPage, scaffoldFor } from "./templates.js";
 
-export const VERSION = "0.1.0";
+export const VERSION = "0.2.0";
 const TOKEN_URL = "https://formgong.com/dashboard/account#api-tokens";
 
 export type Io = {

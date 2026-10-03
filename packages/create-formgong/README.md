@@ -56,7 +56,7 @@ Use the [`formgong`](https://www.npmjs.com/package/formgong) CLI instead. `npx f
 
 - Docs: https://formgong.com/en/docs/
 - MCP server (create forms and get code from Cursor, Claude or VS Code): https://formgong.com/en/docs/mcp/
-- Packages: [`@formgong/core`](https://www.npmjs.com/package/@formgong/core), [`@formgong/react`](https://www.npmjs.com/package/@formgong/react), [`@formgong/next`](https://www.npmjs.com/package/@formgong/next), [`@formgong/vue`](https://www.npmjs.com/package/@formgong/vue), [`@formgong/svelte`](https://www.npmjs.com/package/@formgong/svelte), [`@formgong/astro`](https://www.npmjs.com/package/@formgong/astro), [`formgong`](https://www.npmjs.com/package/formgong) (CLI)
+- Packages: [`@formgong/core`](https://www.npmjs.com/package/@formgong/core), [`@formgong/react`](https://www.npmjs.com/package/@formgong/react), [`@formgong/next`](https://www.npmjs.com/package/@formgong/next), [`@formgong/vue`](https://www.npmjs.com/package/@formgong/vue), [`@formgong/svelte`](https://www.npmjs.com/package/@formgong/svelte), [`@formgong/astro`](https://www.npmjs.com/package/@formgong/astro), [`@formgong/angular`](https://www.npmjs.com/package/@formgong/angular), [`formgong`](https://www.npmjs.com/package/formgong) (CLI)
 - Source: https://github.com/formgong/js (packages/create-formgong)
 - Questions: support@formgong.com
 
