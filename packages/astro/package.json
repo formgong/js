@@ -6,32 +6,83 @@
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "exports": {
-    ".": { "types": "./dist/index.d.ts", "default": "./dist/index.js" },
-    "./client": { "types": "./dist/client.d.ts", "default": "./dist/client.js" },
+    ".": {
+      "types": "./dist/index.d.ts",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "default": "./dist/client.js"
+    },
     "./FormgongForm.astro": "./dist/FormgongForm.astro",
     "./ContactForm.astro": "./dist/ContactForm.astro",
     "./package.json": "./package.json"
   },
-  "files": ["dist", "README.md", "LICENSE"],
-  "sideEffects": ["*.astro"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "sideEffects": [
+    "*.astro"
+  ],
   "scripts": {
     "build": "tsup src/index.ts src/client.ts --format esm --dts --clean --target es2020 && cp src/*.astro dist/",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
-  "dependencies": { "@formgong/core": "workspace:^" },
-  "peerDependencies": { "astro": ">=3.0.0" },
-  "peerDependenciesMeta": { "astro": { "optional": true } },
-  "devDependencies": { "@astrojs/compiler": "^2.10.3" },
+  "dependencies": {
+    "@formgong/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "astro": ">=3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "astro": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "@astrojs/compiler": "^2.10.3"
+  },
   "keywords": [
-    "formgong", "astro", "astro-component", "withastro", "contact-form", "contact form", "form-backend", "form backend", "forms",
-    "formspree-alternative", "formspree alternative", "web3forms-alternative", "web3forms alternative", "netlify-forms-alternative",
-    "telegram", "email", "gdpr", "spam-protection", "static-site", "jamstack", "no-backend", "lovable", "bolt"
+    "formgong",
+    "astro",
+    "astro-component",
+    "withastro",
+    "contact-form",
+    "contact form",
+    "form-backend",
+    "form backend",
+    "forms",
+    "formspree-alternative",
+    "formspree alternative",
+    "web3forms-alternative",
+    "web3forms alternative",
+    "netlify-forms-alternative",
+    "telegram",
+    "email",
+    "gdpr",
+    "spam-protection",
+    "static-site",
+    "jamstack",
+    "no-backend",
+    "lovable",
+    "bolt"
   ],
   "author": "Formgong <support@formgong.com>",
   "license": "MIT",
   "homepage": "https://formgong.com/en/docs/",
-  "repository": { "type": "git", "url": "git+https://github.com/formgong/js.git", "directory": "packages/astro" },
-  "bugs": { "url": "https://github.com/formgong/js/issues", "email": "support@formgong.com" },
-  "publishConfig": { "access": "public", "provenance": true }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formgong/js.git",
+    "directory": "packages/astro"
+  },
+  "bugs": {
+    "url": "https://github.com/formgong/js/issues",
+    "email": "support@formgong.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }

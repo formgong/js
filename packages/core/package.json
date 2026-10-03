@@ -90,7 +90,6 @@
     "node": ">=18.17"
   },
   "publishConfig": {
-    "access": "public",
-    "provenance": true
+    "access": "public"
   }
 }

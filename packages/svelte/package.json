@@ -12,29 +12,73 @@
       "svelte": "./dist/svelte.js",
       "default": "./dist/index.js"
     },
-    "./FormgongForm.svelte": { "types": "./dist/svelte.d.ts", "svelte": "./dist/FormgongForm.svelte" },
-    "./ContactForm.svelte": { "types": "./dist/svelte.d.ts", "svelte": "./dist/ContactForm.svelte" },
+    "./FormgongForm.svelte": {
+      "types": "./dist/svelte.d.ts",
+      "svelte": "./dist/FormgongForm.svelte"
+    },
+    "./ContactForm.svelte": {
+      "types": "./dist/svelte.d.ts",
+      "svelte": "./dist/ContactForm.svelte"
+    },
     "./package.json": "./package.json"
   },
-  "files": ["dist", "README.md", "LICENSE"],
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
   "sideEffects": false,
   "scripts": {
     "build": "tsup src/index.ts --format esm --dts --clean --target es2020 && node build.mjs",
     "typecheck": "tsc --noEmit",
     "test": "vitest run"
   },
-  "dependencies": { "@formgong/core": "workspace:^" },
-  "peerDependencies": { "svelte": "^4.0.0 || ^5.0.0" },
-  "devDependencies": { "svelte": "^5.16.0", "@sveltejs/vite-plugin-svelte": "^4.0.4" },
+  "dependencies": {
+    "@formgong/core": "workspace:^"
+  },
+  "peerDependencies": {
+    "svelte": "^4.0.0 || ^5.0.0"
+  },
+  "devDependencies": {
+    "svelte": "^5.16.0",
+    "@sveltejs/vite-plugin-svelte": "^4.0.4"
+  },
   "keywords": [
-    "formgong", "svelte", "sveltekit", "svelte-action", "contact-form", "contact form", "form-backend", "form backend", "forms",
-    "formspree-alternative", "formspree alternative", "web3forms-alternative", "web3forms alternative",
-    "telegram", "email", "gdpr", "spam-protection", "lovable", "bolt", "static-site", "no-backend"
+    "formgong",
+    "svelte",
+    "sveltekit",
+    "svelte-action",
+    "contact-form",
+    "contact form",
+    "form-backend",
+    "form backend",
+    "forms",
+    "formspree-alternative",
+    "formspree alternative",
+    "web3forms-alternative",
+    "web3forms alternative",
+    "telegram",
+    "email",
+    "gdpr",
+    "spam-protection",
+    "lovable",
+    "bolt",
+    "static-site",
+    "no-backend"
   ],
   "author": "Formgong <support@formgong.com>",
   "license": "MIT",
   "homepage": "https://formgong.com/en/docs/",
-  "repository": { "type": "git", "url": "git+https://github.com/formgong/js.git", "directory": "packages/svelte" },
-  "bugs": { "url": "https://github.com/formgong/js/issues", "email": "support@formgong.com" },
-  "publishConfig": { "access": "public", "provenance": true }
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/formgong/js.git",
+    "directory": "packages/svelte"
+  },
+  "bugs": {
+    "url": "https://github.com/formgong/js/issues",
+    "email": "support@formgong.com"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
 }
